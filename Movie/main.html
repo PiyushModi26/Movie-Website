@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Movies Website</title>
+    <link rel="icon" href="images/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles_main.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">MyMovies</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="menu">Home</a></li>
+                <li><a href="#" class="menu">Movies</a></li>
+                <li><a href="#" class="menu">Genres</a></li>
+                <li><a href="#" class="menu">About</a></li>
+                <li><a href="contact_us.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for movies...">
+            <button onclick="searchMovies()">Search</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Featured Movie Title</h1>
+            <p>Some exciting description of the featured movie goes here.</p>
+            <button>Watch Now</button>
+        </div>
+    </section>
+
+    <!-- Movie Categories -->
+    <section class="categories">
+        <h2>Popular Movies</h2>
+        <div class="movies-grid" id="moviesGrid">
+            <div class="movie-item">
+                <a href="https://new5.gdtot.dad/file/2058631113"><img src="images/movie1.jpg" alt="Inception"></a>
+                <p class="movie-title">Inception</p>
+            </div>
+            <div class="movie-item">
+                <a href="https://hubdrive.art/file/2010014278"><img src="images/matrix_reloaded.jpg" alt="The Matrix"></a>
+                <p class="movie-title">The Matrix</p>
+            </div>
+            <div class="movie-item">
+                <a href="https://hubdrive.art/file/3368879404"><img src="images/the_dark_knight.jpg" alt="The Dark Knight"></a>
+                <p class="movie-title">The Dark Knight</p>
+            </div>
+            <div class="movie-item">
+                <a href="https://hubdrive.art/file/1711573328"><img src="images/interstellar.jpg" alt="Interstellar"></a>
+                <p class="movie-title">Interstellar</p>
+            </div>
+        </div>
+
+        <h2>Latest Releases</h2>
+        <div class="movies-grid" id="moviesGrid">
+            <div class="movie-item">
+                <img src="images/dune.jpg" alt="Dune">
+                <p class="movie-title">Dune</p>
+            </div>
+            <div class="movie-item">
+                <img src="images/no time to die.jpg" alt="No Time to Die">
+                <p class="movie-title">No Time to Die</p>
+            </div>
+            <div class="movie-item">
+                <img src="images/eternals.jpeg" alt="Eternals">
+                <p class="movie-title">Eternals</p>
+            </div>
+            <div class="movie-item">
+                <img src="images/spiderman_nowayhome.jpeg" alt="Spider-Man: No Way Home">
+                <p class="movie-title">Spider-Man: No Way Home</p>
+            </div>
+        </div>
+
+        <h2>Top Rated</h2>
+        <div class="movies-grid" id="moviesGrid">
+            <div class="movie-item">
+                <img src="path/to/movie9.jpg" alt="The Shawshank Redemption">
+                <p class="movie-title">The Shawshank Redemption</p>
+            </div>
+            <div class="movie-item">
+                <img src="path/to/movie10.jpg" alt="The Godfather">
+                <p class="movie-title">The Godfather</p>
+            </div>
+            <div class="movie-item">
+                <img src="path/to/movie11.jpg" alt="The Dark Knight">
+                <p class="movie-title">The Dark Knight</p>
+            </div>
+            <div class="movie-item">
+                <img src="path/to/movie12.jpg" alt="Pulp Fiction">
+                <p class="movie-title">Pulp Fiction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Subscription -->
+    <section class="newsletter">
+        <h2>Subscribe to our Newsletter</h2>
+        <p>Get the latest updates on new movies and special offers.</p>
+        <input type="email" placeholder="Enter your email">
+        <button>Subscribe</button>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="https://www.instagram.com">Instagram</a>
+        </div>
+        <div class="footer-links">
+            <a href="#">Terms of Service</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+        <p>&copy; 2024 MyMovies. All rights reserved.</p>
+    </footer>
+
+    <!-- Search Functionality Script -->
+    <script>
+        function searchMovies() {
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const movies = document.querySelectorAll('.movie-item');
+
+            let found = false;
+            movies.forEach(movie => {
+                const title = movie.querySelector('.movie-title').textContent.toLowerCase();
+                if (title.includes(searchValue)) {
+                    movie.style.display = 'block';
+                    found = true;
+                } else {
+                    movie.style.display = 'none';
+                }
+            });
+
+            // Handle case where no movie matches the search
+            if (!found) {
+                alert('No movies found with the search term: ' + searchValue);
+            }
+        }
+
+        // Search with Enter key functionality
+        document.getElementById('searchInput').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                searchMovies();
+            }
+        });
+    </script>
+</body>
+</html>
